@@ -1,4 +1,6 @@
 # Autodesk API to Power BI Integration using Python & Microsoft Fabric
+<img width="3840" height="2280" alt="Screenshot 2025-08-01 103700" src="https://github.com/user-attachments/assets/4a4c9c5e-202d-4590-8827-68c51d596528" />
+
 
 A complete workflow to fetch data from Autodesk Construction Cloud (ACC) using Autodesk Platform Services (APS), load it into Microsoft Fabric Lakehouse, and build Power BI dashboards.
 
