@@ -8,7 +8,7 @@ CLIENT_SECRET = "YOUR_CLIENT_SECRET"
 PROJECT_ID = "YOUR_PROJECT_ID"
 BASE_URL = "https://developer.api.autodesk.com"
 TOKEN_URL = "https://developer.api.autodesk.com/authentication/v2/token"
-TOKEN_PATH = "/lakehouse/default/Files/token_store.json"
+TOKEN_PATH = "/lakehouse/default/Files/auth/token_store.json"
 
 def refresh_access_token(refresh_token):
     data = {
