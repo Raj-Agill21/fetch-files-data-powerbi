@@ -1,13 +1,18 @@
-# Autodesk API to Power BI Integration using Python & Microsoft Fabric
+# 📊 Autodesk API to Power BI Integration using Python & Microsoft Fabric
 
 A complete workflow to fetch data from Autodesk Construction Cloud (ACC) using Autodesk Platform Services (APS), load it into Microsoft Fabric Lakehouse, and build Power BI dashboards.
 
+---
+
 ## 📁 Folder Structure
-C:\APS\Review-files\
 
-├── auth.py ← for OAuth and token storage
+```
+your-project-folder/
+├── auth.py              # Handles OAuth authentication
+├── token_store.json     # Token file generated after login
+```
 
-├── token_store.json ← generated after login
+---
 
 ## ✅ Features
 
@@ -16,6 +21,9 @@ C:\APS\Review-files\
 - Upload tokens to Fabric Lakehouse
 - Scheduled daily refresh via Data Pipeline
 - Power BI report based on live Autodesk data
+- Optional: Custom Integration inside ACC project
+
+---
 
 ## 🛠️ Prerequisites
 
@@ -28,32 +36,92 @@ Install dependencies:
 
 ```bash
 pip install requests flask pandas
+```
 
+---
 
-🔐 1. Set Up Autodesk API App
-Go to: https://aps.autodesk.com/
+## 🔐 1. Set Up Autodesk API App
 
-Create an app and note:
+- Go to: https://aps.autodesk.com/
+- Create an app and note:
+  - `client_id`
+  - `client_secret`
+- Set Redirect URI: `http://localhost:3000/callback`
+- Required Scopes:  
+  `data:read`, `data:write`, `bucket:read`, `viewables:read`
 
-client_id
+---
 
-client_secret
+## 🔌2. Custom Integration in ACC
 
-Set Redirect URI: http://localhost:3000/callback
+1. Go to **ACC → ACC Admin → Custom Integrations**
+2. Register your APS App using the `client_id`
 
-Required Scopes:
-data:read, data:write, bucket:read, viewables:read
+## 🔑 3. Authentication Script
 
-## 🔑 2. Authentication Script
-Create auth.py and insert the following:
+Create `auth.py` and insert the following:
 
-python
+```python
 # auth.py
 # [Insert full authentication code here]
+```
 
 Run it:
 
 ```bash
 python auth.py
+```
 
-Browser opens → Login → Token saved in token_store.json
+- Browser opens → Login → Token saved in `token_store.json`
+
+---
+
+## 📤 4. Upload Token to Fabric
+
+- Go to Fabric Workspace → Lakehouse
+- Create folder: `Files/auth/`
+- Upload `token_store.json` there
+
+---
+
+## 📓 5. Create Fabric Notebook
+
+- In Fabric, create a Notebook
+- Paste the Python code to:
+  - Refresh token
+  - Run
+  - It Save as `acc_reviews_daily` table
+
+---
+
+## ⏱ 6. Automate with Data Pipeline
+
+- Go to workspace → `+ New > Data Pipeline`
+- Drag your notebook
+- Add Trigger → Schedule → Daily
+- Save & Publish
+
+---
+
+## 📈 7. Build Power BI Report
+
+- Go to workspace → `+ New > Power BI Report`
+- Choose Lakehouse as source
+- Select `acc_reviews_daily` table
+- Build and save your dashboard
+
+---
+
+## 📚 Resources
+
+- [Autodesk Platform Services](https://aps.autodesk.com/)
+
+---
+
+## 👨‍💻 Author
+
+- Name: `Raj Agill P K`
+- Email: `your.email@domain.com`
+
+---
+
