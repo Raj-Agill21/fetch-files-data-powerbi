@@ -17,7 +17,6 @@ your-project-folder/
 - Upload tokens to Fabric Lakehouse
 - Scheduled daily refresh via Data Pipeline
 - Power BI report based on live Autodesk data
-- Optional: Custom Integration inside ACC project
 
 ## 🛠️ Prerequisites
 
@@ -99,7 +98,6 @@ python auth.py
 ## 👨‍💻 Author
 
 - Name: `Raj Agill P K`
-- Email: `your.email@domain.com`
 
 ---
 
