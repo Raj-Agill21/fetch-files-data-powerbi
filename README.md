@@ -2,8 +2,6 @@
 
 A complete workflow to fetch data from Autodesk Construction Cloud (ACC) using Autodesk Platform Services (APS), load it into Microsoft Fabric Lakehouse, and build Power BI dashboards.
 
----
-
 ## 📁 Folder Structure
 
 ```
@@ -11,8 +9,6 @@ your-project-folder/
 ├── auth.py              # Handles OAuth authentication
 ├── token_store.json     # Token file generated after login
 ```
-
----
 
 ## ✅ Features
 
@@ -22,8 +18,6 @@ your-project-folder/
 - Scheduled daily refresh via Data Pipeline
 - Power BI report based on live Autodesk data
 - Optional: Custom Integration inside ACC project
-
----
 
 ## 🛠️ Prerequisites
 
@@ -38,8 +32,6 @@ Install dependencies:
 pip install requests flask pandas
 ```
 
----
-
 ## 🔐 1. Set Up Autodesk API App
 
 - Go to: https://aps.autodesk.com/
@@ -49,8 +41,6 @@ pip install requests flask pandas
 - Set Redirect URI: `http://localhost:3000/callback`
 - Required Scopes:  
   `data:read`, `data:write`, `bucket:read`, `viewables:read`
-
----
 
 ## 🔌2. Custom Integration in ACC
 
@@ -74,15 +64,11 @@ python auth.py
 
 - Browser opens → Login → Token saved in `token_store.json`
 
----
-
 ## 📤 4. Upload Token to Fabric
 
 - Go to Fabric Workspace → Lakehouse
 - Create folder: `Files/auth/`
 - Upload `token_store.json` there
-
----
 
 ## 📓 5. Create Fabric Notebook
 
@@ -92,16 +78,12 @@ python auth.py
   - Run
   - It Save as `acc_reviews_daily` table
 
----
-
 ## ⏱ 6. Automate with Data Pipeline
 
 - Go to workspace → `+ New > Data Pipeline`
 - Drag your notebook
 - Add Trigger → Schedule → Daily
 - Save & Publish
-
----
 
 ## 📈 7. Build Power BI Report
 
@@ -110,13 +92,9 @@ python auth.py
 - Select `acc_reviews_daily` table
 - Build and save your dashboard
 
----
-
 ## 📚 Resources
 
 - [Autodesk Platform Services](https://aps.autodesk.com/)
-
----
 
 ## 👨‍💻 Author
 
