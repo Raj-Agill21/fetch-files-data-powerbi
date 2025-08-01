@@ -50,7 +50,7 @@ pip install requests flask pandas
 
 ## 🔑 3. Authentication Script
 
-Create `auth.py` and insert the following:
+Create `auth.py` and insert the code in `auth.py` file in the repo:
 
 ```python
 # auth.py
